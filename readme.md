@@ -22,7 +22,7 @@ This automation script creates resources in the Azure. Used WSL2 with Ubuntu Dis
         # Run this script
         jit-initiate.sh <resource-group-name> <vm-name> <jitNetworkAccessPolicyName>
         ```
-3. [rdp-my-msft-vm.vbs](/src/rdp-my-msft-vm.vbs) - This script launches the RDP session on windows system with a double click. Requires rdp file to be downloaded & [StartMyVM.sh](/src/StartMyVM.sh) bash script to be present.
+3. [rdp-my-msft-vm.vbs](/src/rdp-my-msft-vm.vbs) - This script launches the RDP session on windows system with a double click. Requires rdp file to be downloaded & [StartMyVM.sh](/src/StartMyVM.sh) bash script to be present. The script requires the `Public IP address` of the VM to be updated.
 4. [StartMyVM.sh](/src/StartMyVM.sh) - This script launches the VM RDP after login to the Azure subscription via  certificate based authentication using Service Principal. If the VM is switched off it will start it. It also executes the script [jit-initiate.sh](/src/abhi-azure-dev.sh) & requests the JIT access. This in turn adds an inbound NSG rule to allow port 3389. The script requires `SP-Client-Id`, `Azure-Tenant-Id` & the `sp-certificate` downloaded from Key Vault should be placed in the same location.
 
 ![alt txt](/images/resource-visualizer.jpg)
